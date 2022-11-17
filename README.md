@@ -108,7 +108,8 @@ The starter codes use an interactive form builder library called [Flask-WTF](htt
 Acceptance Criteria
 -----
 
-1. The web app should be successfully connected to a PostgreSQL database. A local connection to a database on your local computer is fine.
+> 1. The web app should be successfully connected to a PostgreSQL database. A local connection to a database on your local computer is fine.
+
 2. There should be no use of mock data throughout the app. The data structure of the mock data per controller should be kept unmodified when satisfied by real data.
 3. The application should behave just as before with mock data, but now uses real data from a real backend server, with real search functionality. For example:
   * when a user submits a new artist record, the user should be able to see it populate in /artists, as well as search for the artist by name and have the search return results.
