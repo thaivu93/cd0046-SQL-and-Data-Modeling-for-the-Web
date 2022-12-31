@@ -81,6 +81,7 @@ venues = [
         "upcoming_shows_count": 1,
     }
 
+
 ]
 
 with app.app_context():
