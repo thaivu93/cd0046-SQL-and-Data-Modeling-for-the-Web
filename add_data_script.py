@@ -1,5 +1,6 @@
 from model import Venue, Artist, Show
 from app import  app,db
+
 venues = [
     {
         "id": 1,
@@ -80,6 +81,9 @@ venues = [
         "past_shows_count": 1,
         "upcoming_shows_count": 1,
     }
+]
+
+[
 
 
 ]
