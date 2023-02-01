@@ -1,6 +1,7 @@
 from model import Venue, Artist, Show
 from app import  app,db
 
+
 venues = [
     {
         "id": 1,
@@ -83,7 +84,7 @@ venues = [
     }
 ]
 
-artist = [
+artists = [
     {
         "id": 4,
         "name": "Guns N Petals",
@@ -158,28 +159,34 @@ artist = [
 ]
 
 with app.app_context():
-    for v in venues:
-        data = Venue(
-            name = v['name'],
-            city = v['city'],
-            state = v['state'],
-            address = v['address'],
-            phone = v['phone'],
-            image_link = v['image_link'],
-            facebook_link = v['facebook_link'],
-            website = v['website'],
-            seeking_talent = v['seeking_talent'],
+    v, a = {}, {}
+    for i in range(0,len(venues)):
+        v[i] = Venue(
+            name = venues[i]['name'],
+            city = venues[i]['city'],
+            state = venues[i]['state'],
+            address = venues[i]['address'],
+            phone = venues[i]['phone'], 
+            image_link = venues[i]['image_link'],
+            facebook_link = venues[i]['facebook_link'],
+            website = venues[i]['website'],
+            seeking_talent = venues[i]['seeking_talent'],
         )
-        db.session.add(data)
-    for a in artist:
-        artist = Artist(
-            name = a['name'],
-            city = a['city'],
-            state = a['state'],
-            phone = a['phone'],
-            genres = a['genres'],
-            image_link = a['image_link'],
+    for j in range(0, len(artists)):
+        a[j] = Artist(
+            name = artists[j]['name'],
+            city = artists[j]['city'],
+            state = artists[j]['state'],
+            phone = artists[j]['phone'],
+            genres = artists[j]['genres'],
+            image_link = artists[j]['image_link'],
         )
-        db.session.add(artist)
+    
+    a[0].venue.append(v[0])
+    a[1].venue.append(v[1])
+    a[2].venue.append(v[2])
+    db.session.add_all([a[0], a[1], a[2]])
+    db.session.add_all([v[0], v[1], v[2]])
+
     db.session.commit()
     db.session.close()
