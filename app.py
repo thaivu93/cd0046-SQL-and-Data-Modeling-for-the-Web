@@ -1,7 +1,6 @@
 #----------------------------------------------------------------------------#
 # Imports
 #----------------------------------------------------------------------------#
-
 import json
 import dateutil.parser
 import babel
@@ -45,10 +44,9 @@ app.jinja_env.filters['datetime'] = format_datetime
 @app.route('/')
 def index():
   return render_template('pages/home.html')
-
-
 #  Venues
 #  ----------------------------------------------------------------
+
 
 @app.route('/venues')
 def venues():
