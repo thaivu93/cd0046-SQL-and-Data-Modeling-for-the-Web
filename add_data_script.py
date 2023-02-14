@@ -233,7 +233,6 @@ artists = [
 ]
 
 with app.app_context():
-<<<<<<< HEAD
     for v in venues:
         data = Venue(
             name = v['name'],
@@ -252,7 +251,6 @@ with app.app_context():
             city = a['city'],
         )
 
-=======
     v, a = {}, {}
     for i in range(0,len(venues)):
         v[i] = Venue(
@@ -275,7 +273,6 @@ with app.app_context():
             genres = artists[j]['genres'],
             image_link = artists[j]['image_link'],
         )
-    
     a[0].venue.append(v[0])
     a[1].venue.append(v[1])
     a[2].venue.append(v[2])
@@ -283,5 +280,4 @@ with app.app_context():
     db.session.add_all([v[0], v[1], v[2]])
 
     db.session.commit()
->>>>>>> e7f1a55f38cc1eb93ed83a16646d1d4f40752ebc
     db.session.close()
